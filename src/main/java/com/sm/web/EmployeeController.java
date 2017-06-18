@@ -7,6 +7,8 @@ import com.github.pagehelper.PageInfo;
 import com.sm.pojo.Employee;
 import com.sm.pojo.Msg;
 import com.sm.service.EmployeeService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,6 +29,7 @@ import java.util.Map;
  * Created by Victor on 2017/5/18.
  */
 @RestController
+@Api
 public class EmployeeController {
     @Autowired
     private EmployeeService employeeService;
@@ -40,6 +43,7 @@ public class EmployeeController {
      */
     @ResponseBody
     @RequestMapping(value="/emp/{ids}",method = RequestMethod.DELETE)
+    @ApiOperation(value = "单个删除和多个删除")
     public Msg deleteEmp(@PathVariable("ids")String ids){
         //批量删除
         if(ids.contains("-")){
@@ -58,6 +62,7 @@ public class EmployeeController {
     }
     @RequestMapping("/emps")
     @ResponseBody
+    @ApiOperation(value ="多条内容查询")
     public Msg getEmpsWithJson(@RequestParam(value="pn",defaultValue = "1")Integer pn){
         //查询很多数据，不是分页查询
         //引入PageHelper插件
@@ -111,6 +116,7 @@ public class EmployeeController {
      */
     @ResponseBody
     @RequestMapping(value="/emp/{empId}",method= RequestMethod.PUT)
+    @ApiOperation(value = "保存员工数据")
     public Msg saveEmp(Employee employee,HttpServletRequest request){
         System.out.println("请求体中的值："+request.getParameter("gender"));
         System.out.println("将要更新的员工数据："+employee);
@@ -125,6 +131,7 @@ public class EmployeeController {
      */
     @RequestMapping(value="/emp/{id}",method= RequestMethod.GET)
     @ResponseBody
+    @ApiOperation(value = "根据id查询员工")
     public Msg getEmp(@PathVariable("id")Integer id){
 
         Employee employee = employeeService.getEmp(id);
@@ -138,6 +145,7 @@ public class EmployeeController {
      */
     @ResponseBody
     @RequestMapping("/checkuser")
+    @ApiOperation(value = "查询用户名是否可用")
     public Msg checkuser(@RequestParam("empName")String empName){
         //先判断用户名是否是合法的表达式;
         String regx = "(^[a-zA-Z0-9_-]{6,16}$)|(^[\u2E80-\u9FFF]{2,5})";
@@ -164,6 +172,7 @@ public class EmployeeController {
      */
     @RequestMapping(value="/emp",method= RequestMethod.POST)
     @ResponseBody
+    @ApiOperation(value = "员工保存")
     public Msg saveEmp(@Valid Employee employee, BindingResult result){
 
         if(result.hasErrors()){
