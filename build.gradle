@@ -1,0 +1,84 @@
+group 'com.sm'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'war'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot
+    compile group: 'org.springframework.boot', name: 'spring-boot', version: '1.5.4.RELEASE'
+
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '1.5.4.RELEASE'
+
+    // https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api
+    provided group: 'javax.servlet', name: 'javax.servlet-api', version: '3.0.1'
+
+// https://mvnrepository.com/artifact/jstl/jstl
+    compile group: 'jstl', name: 'jstl', version: '1.2'
+
+    /**
+     * 前端渲染
+     */
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-thymeleaf
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf', version: '1.5.4.RELEASE'
+
+    /**
+     * jdbc
+     */
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-jdbc
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-jdbc', version: '1.5.4.RELEASE'
+
+    /**
+     * json数据
+     */
+    // https://mvnrepository.com/artifact/com.alibaba/fastjson
+    compile group: 'com.alibaba', name: 'fastjson', version: '1.2.33'
+
+    /****************mybatis*************/
+    /**
+     * mybatis和springboot组合
+     */
+    // https://mvnrepository.com/artifact/org.mybatis.spring.boot/mybatis-spring-boot-starter
+    compile group: 'org.mybatis.spring.boot', name: 'mybatis-spring-boot-starter', version: '1.3.0'
+
+    /**
+     * mysql-connector
+     */
+    // https://mvnrepository.com/artifact/mysql/mysql-connector-java
+    compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.42'
+
+
+    /**
+     * 数据库连接池 Alibaba
+     */
+    // https://mvnrepository.com/artifact/com.alibaba/druid
+    compile group: 'com.alibaba', name: 'druid', version: '1.0.31'
+
+    /**
+     * json注解
+     */
+    // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-annotations
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: '2.8.8'
+
+    /**
+     * 代码生成
+     */
+    // https://mvnrepository.com/artifact/org.mybatis.generator/mybatis-generator-core
+    compile group: 'org.mybatis.generator', name: 'mybatis-generator-core', version: '1.3.5'
+
+    /**
+     * 分页
+     */
+    // https://mvnrepository.com/artifact/com.github.pagehelper/pagehelper-spring-boot-starter
+    compile group: 'com.github.pagehelper', name: 'pagehelper-spring-boot-starter', version: '1.1.1'
+
+
+}
