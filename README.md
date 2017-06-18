@@ -13,6 +13,8 @@ jdk8
   使用Gradle构建springboot+mybatis项目，实现srud功能。
 
   前端暂时没有加入，可以使用Chrome浏览器查看返回的json数据
+  
+  添加redis和swagger
 
 ## 3.添加redis支持
   
